@@ -47,17 +47,21 @@ async def on_message(message):
             if "明日" in message.content:
                 day = ["明日", 1]
             await message.channel.send(day[0] + "の天気は、" + data["forecasts"][day[1]]["detail"]["weather"] + "\n朝の降水確率は" + data["forecasts"][day[1]]["chanceOfRain"]["T06_12"] + "\n昼の降水確率は" + data["forecasts"][day[1]]["chanceOfRain"]["T12_18"] + "\n夜の降水確率は" + data["forecasts"][day[1]]["chanceOfRain"]["T18_24"])
-
         else:
-            dataArray = []
-            # dataArray.append([["key1", "key2"], ["<:EmojiName:EmojiID>", "\N{UnicodeName}"], "message"])
-            for data in dataArray:
-                for keyWord in data[0]:
-                    if keyWord in message.content:
-                        if len(data[1]) != 0:
-                            for reaction in data[1]:
+            MessageReaction = json.load(
+                open("MessageReaction.json", "r", encoding="utf-8"))
+            for data in MessageReaction["data"]:
+                for keyWord in data["keyWord"]:
+                    if keyWord in message.content.lower():
+                        if len(data["reaction"]) != 0:
+                            for reaction in data["reaction"]:
+                                if ":" in reaction:
+                                    reaction = "<:" + reaction + ">"
+                                else:
+                                    reaction = chr(
+                                        (int("0x"+reaction[2:], 16)))
                                 await message.add_reaction(reaction)
-                        if len(data[2]) != 0:
-                            await message.channel.send(data[2])
+                        if len(data["message"]) != 0:
+                            await message.channel.send(data["message"])
 
 client.run(config["token"])
