@@ -2,6 +2,7 @@ import discord
 import requests
 import json
 client = discord.Client()
+config = json.load(open("config.json", "r"))
 
 
 @client.event
@@ -59,4 +60,4 @@ async def on_message(message):
                         if len(data[2]) != 0:
                             await message.channel.send(data[2])
 
-client.run("ODg3NTA4ODczNDY3MDE5MzM2.YUFLDA.uKmG_E0GZyriX2DtMVYV6_exrwI")
+client.run(config["token"])
