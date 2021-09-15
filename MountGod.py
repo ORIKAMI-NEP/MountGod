@@ -55,9 +55,7 @@ async def on_message(message):
                     if keyWord in message.content.lower():
                         if len(data["reaction"]) != 0:
                             for reaction in data["reaction"]:
-                                if ":" in reaction:
-                                    reaction = "<:" + reaction + ">"
-                                else:
+                                if reaction[:1] == "U":
                                     reaction = chr(
                                         (int("0x"+reaction[2:], 16)))
                                 await message.add_reaction(reaction)
