@@ -12,28 +12,16 @@ async def on_ready():
 
 @client.event
 async def on_voice_state_update(member, before, after):
-    print(len(member.voice.channel.members))
     if before.channel != after.channel and after.channel is not None and after.channel.id in [777032856286396456]:
-        if member.is_on_mobile():
-            message = ":mobile_phone:"
-        else:
-            message = ":computer:"
-        message += " __" + member.name + "__ が **" + after.channel.name + "** "
-        if len(member.voice.channel.members) == 1:
-            message += "で通話を開始しました！ :man_raising_hand:"
-            print("test1")
-        else:
-            message += "に途中参加しました！ "
-            if len(member.voice.channel.members) == 2:
-                message += ":family_man_boy:"
-                print("test2")
-            elif len(member.voice.channel.members) == 3:
-                message += ":family_mmb:"
-                print("test3")
-            else:
-                message += ":family_mmbb:"
-                print("test4")
-        await client.get_channel(777032730595557389).send(message)
+        if member.id in [413611857778180096]:
+            emoji = ":video_game:"
+        elif member.id in [731679198615437715]:
+            emoji = ":tools:"
+        elif member.id in [777105632342966273]:
+            emoji = ":underage:"
+        elif member.id in [778607585586053127]:
+            emoji = ":dog:"
+        await client.get_channel(777032730595557389).send(emoji + " __" + member.name + "__ が **" + after.channel.name + "** に参加しました！" + emoji)
 
 
 @client.event
