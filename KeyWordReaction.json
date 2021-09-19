@@ -1,12 +1,17 @@
 [
   {
-    "keyWord": ["プロコン"],
-    "reaction": ["<:procon:887521839880998962>"],
+    "keyWord": ["コロナ"],
+    "reaction": ["<:covid:887522712409505793>"],
     "message": ""
   },
   {
-    "keyWord": ["コロナ"],
-    "reaction": ["<:covid:887522712409505793>"],
+    "keyWord": ["下ネタ"],
+    "reaction": ["<:kimo:889236973347287080>"],
+    "message": ""
+  },
+  {
+    "keyWord": ["プロコン"],
+    "reaction": ["<:procon:887521839880998962>"],
     "message": ""
   },
   {
