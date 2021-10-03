@@ -23,7 +23,7 @@ async def on_voice_state_update(member, before, after):
             emoji = ":underage:"
         elif member.id in [778607585586053127]:
             emoji = ":dog:"
-        await client.get_channel(777032730595557389).send(emoji + " __" + member.name + "__ が **" + after.channel.name + "** に参加しました！" + emoji)
+        await client.get_channel(890784320149663834).send(emoji + " __" + member.name + "__ が **" + after.channel.name + "** に参加しました！" + emoji)
 
 
 @client.event
