@@ -29,17 +29,6 @@ async def on_voice_state_update(member, before, after):
 @client.event
 async def on_message(message):
     if not message.author.bot and "\\" not in message.content:
-        random.seed()
-        if random.randrange(0, 200) == 0:
-            await message.add_reaction("<a:takahashi_eye:873932638975569991>")
-            await message.add_reaction("<a:05:889229500691394720>")
-        elif random.randrange(0, 1000) == 0:
-            await message.add_reaction("<a:thinking_gif:818883442518655028>")
-            await message.add_reaction("<a:01:889229727083155496>")
-        elif random.randrange(0, 10000) == 0:
-            await message.add_reaction("<a:chuchu_gif:823537847465803868>")
-            await message.add_reaction("<a:001:889229735803105280>")
-
         if "天気" in message.content:
             data = requests.get(
                 "https://weather.tsukumijima.net/api/forecast?city=360010").json()
@@ -53,9 +42,9 @@ async def on_message(message):
             if day[:1] == "0":
                 day = day[1:]
             await message.channel.send(data["forecasts"][dateLabel]["dateLabel"] + "（" + month + "月" + day + "日）の天気は、" + data["forecasts"][dateLabel]["detail"]["weather"] + "\n朝の降水確率は" + data["forecasts"][dateLabel]["chanceOfRain"]["T06_12"] + "\n昼の降水確率は" + data["forecasts"][dateLabel]["chanceOfRain"]["T12_18"] + "\n夜の降水確率は" + data["forecasts"][dateLabel]["chanceOfRain"]["T18_24"])
-            return
 
         else:
+            random.seed()
             with open("KeyWordReaction.json", "r", encoding="utf-8") as KeyWordReaction:
                 KeyWordReaction = json.load(KeyWordReaction)
                 random.shuffle(KeyWordReaction)
@@ -72,20 +61,31 @@ async def on_message(message):
                                 await message.channel.send(data["message"])
                             return
 
-            messageContent = extractJapanese(message.content)
-            if len(messageContent) <= 20 and len(messageContent) >= 5:
-                with open("TrainingData.json", "r", encoding="utf-8") as TrainingData, open("DefaultReaction.json", "r", encoding="utf-8") as DefaultReaction:
-                    TrainingData = json.load(TrainingData)
-                    random.shuffle(TrainingData)
-                    ApproximateWord = ["", 100]
-                    for data in TrainingData:
-                        distance = Levenshtein.distance(
-                            message.content, data["message"])
-                        if ApproximateWord[1] > distance:
-                            ApproximateWord = [data["reaction"], distance]
-                    DefaultReaction = json.load(DefaultReaction)
-                    await message.add_reaction(DefaultReaction[ApproximateWord[0]])
-                    await message.add_reaction("<a:iikaeshi:889297289401761852>")
+            if random.randrange(0, 200) == 0:
+                await message.add_reaction("<a:takahashi_eye:873932638975569991>")
+                await message.add_reaction("<a:05:889229500691394720>")
+            elif random.randrange(0, 1000) == 0:
+                await message.add_reaction("<a:thinking_gif:818883442518655028>")
+                await message.add_reaction("<a:01:889229727083155496>")
+            elif random.randrange(0, 10000) == 0:
+                await message.add_reaction("<a:chuchu_gif:823537847465803868>")
+                await message.add_reaction("<a:001:889229735803105280>")
+
+            else:
+                messageContent = extractJapanese(message.content)
+                if len(messageContent) <= 20 and len(messageContent) >= 5:
+                    with open("TrainingData.json", "r", encoding="utf-8") as TrainingData, open("DefaultReaction.json", "r", encoding="utf-8") as DefaultReaction:
+                        TrainingData = json.load(TrainingData)
+                        random.shuffle(TrainingData)
+                        ApproximateWord = ["", 100]
+                        for data in TrainingData:
+                            distance = Levenshtein.distance(
+                                message.content, data["message"])
+                            if ApproximateWord[1] > distance:
+                                ApproximateWord = [data["reaction"], distance]
+                        DefaultReaction = json.load(DefaultReaction)
+                        await message.add_reaction(DefaultReaction[ApproximateWord[0]])
+                        await message.add_reaction("<a:iikaeshi:889297289401761852>")
 
 
 @ client.event
