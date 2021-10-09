@@ -1,0 +1,458 @@
+[
+  {
+    "message": "学校辞めていい？",
+    "reaction": "dame"
+  },
+  {
+    "message": "俺実は男でした",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "テスト諦めます",
+    "reaction": "doushite"
+  },
+  {
+    "message": "勉強飽きた",
+    "reaction": "e_"
+  },
+  {
+    "message": "頭大丈夫ですか？",
+    "reaction": "ha"
+  },
+  {
+    "message": "この作品どう？",
+    "reaction": "iine"
+  },
+  {
+    "message": "女の子可愛いよね",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "完全にやらかした",
+    "reaction": "kusa"
+  },
+  {
+    "message": "もう無理だわ",
+    "reaction": "majika"
+  },
+  {
+    "message": "こういうことです",
+    "reaction": "naruhodo"
+  },
+  {
+    "message": "何でできないの？",
+    "reaction": "nazo"
+  },
+  {
+    "message": "課題まだ終わらないの？",
+    "reaction": "ne"
+  },
+  {
+    "message": "これでよろしく",
+    "reaction": "ok"
+  },
+  {
+    "message": "休み欲しいよね",
+    "reaction": "seyana"
+  },
+  {
+    "message": "試験詰みました",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "先生まだ来ないのか",
+    "reaction": "sorena"
+  },
+  {
+    "message": "今日暑いよね",
+    "reaction": "tashikani"
+  },
+  {
+    "message": "全然やってない",
+    "reaction": "www"
+  },
+  {
+    "message": "これはやばいわ",
+    "reaction": "yaba"
+  },
+  {
+    "message": "レポートが完成した",
+    "reaction": "yoki"
+  },
+  {
+    "message": "お腹すいた",
+    "reaction": "seyana"
+  },
+  {
+    "message": "実際はただのゴリ押し学習",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "ロリコンは犯罪ですか？",
+    "reaction": "ha"
+  },
+  {
+    "message": "折上君は露出狂",
+    "reaction": "yaba"
+  },
+  {
+    "message": "委員長は変態",
+    "reaction": "majika"
+  },
+  {
+    "message": "ショタケモ緊縛リョナ",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "緊縛してほしい",
+    "reaction": "ok"
+  },
+  {
+    "message": "今川君は彼氏持ち",
+    "reaction": "yaba"
+  },
+  {
+    "message": "今川君は以上",
+    "reaction": "yaba"
+  },
+  {
+    "message": "百合よりも薔薇を咲かそう",
+    "reaction": "sorena"
+  },
+  {
+    "message": "彼氏できました",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "あ文字以上だった",
+    "reaction": "yaba"
+  },
+  {
+    "message": "彼女できました",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "高橋君好みの女性やん",
+    "reaction": "yaba"
+  },
+  {
+    "message": "ついに俺もめっちゃ罵倒されだした",
+    "reaction": "kusa"
+  },
+  {
+    "message": "学校月日からだってやったね",
+    "reaction": "dame"
+  },
+  {
+    "message": "マウン神は陰キャですか？",
+    "reaction": "ha"
+  },
+  {
+    "message": "ヒーローズよりも戦略性のあるやつを",
+    "reaction": "ok"
+  },
+  {
+    "message": "こんなはずじゃなかった",
+    "reaction": "sorena"
+  },
+  {
+    "message": "なかったザウルス",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "そんな訳ねぇすよ旦那ぁ",
+    "reaction": "sorena"
+  },
+  {
+    "message": "もう買う財布決める",
+    "reaction": "majika"
+  },
+  {
+    "message": "俺はペンしか持ってかん",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "ちなみに父親の口座から引き落とされます",
+    "reaction": "kusa"
+  },
+  {
+    "message": "原付はじゃまやね",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "ミュート推奨",
+    "reaction": "tashikani"
+  },
+  {
+    "message": "判定になるのかな？",
+    "reaction": "nazo"
+  },
+  {
+    "message": "何より金がない",
+    "reaction": "www"
+  },
+  {
+    "message": "連絡確認ってで返すの？スラックで返すの？",
+    "reaction": "ha"
+  },
+  {
+    "message": "共存ほぼ無理",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "性を実感するよね",
+    "reaction": "yaba"
+  },
+  {
+    "message": "とある企業の質問コーナー社長",
+    "reaction": "yoki"
+  },
+  {
+    "message": "始業式始まるお",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "先生頭部がもう",
+    "reaction": "sorena"
+  },
+  {
+    "message": "って言いまわるしかねぇもんなぁ",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "リアルタイムは無しだと思う",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "ツーサイドアップかわいいよ",
+    "reaction": "dame"
+  },
+  {
+    "message": "サイドテールもいいな",
+    "reaction": "dame"
+  },
+  {
+    "message": "今日も健康のために時間くらい昼寝するかー",
+    "reaction": "kusa"
+  },
+  {
+    "message": "素材だけもらっていい？",
+    "reaction": "dame"
+  },
+  {
+    "message": "これ馬鹿すぎる",
+    "reaction": "yaba"
+  },
+  {
+    "message": "は公共の福祉に反している",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "授業を受ける資格がないらしい",
+    "reaction": "www"
+  },
+  {
+    "message": "なんで情報なのに機械音痴なのだろうか",
+    "reaction": "nazo"
+  },
+  {
+    "message": "ミニ研究だな",
+    "reaction": "tashikani"
+  },
+  {
+    "message": "やんなくてもいいよね",
+    "reaction": "dame"
+  },
+  {
+    "message": "これで質問してもいい？",
+    "reaction": "dame"
+  },
+  {
+    "message": "なんかわからんけどええよ",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "早めに書いた方が得やで",
+    "reaction": "seyana"
+  },
+  {
+    "message": "どこ行きたい？",
+    "reaction": "e_"
+  },
+  {
+    "message": "いんちょ助けて分からん",
+    "reaction": "sorena"
+  },
+  {
+    "message": "今度はキシダガーが発生するそうです",
+    "reaction": "yaba"
+  },
+  {
+    "message": "騎士ダガー",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "テスト前にに追加して暗記すれば",
+    "reaction": "dame"
+  },
+  {
+    "message": "物理終わらん",
+    "reaction": "seyana"
+  },
+  {
+    "message": "枚に大問つ収める",
+    "reaction": "majika"
+  },
+  {
+    "message": "そうか今日が命日なのか",
+    "reaction": "www"
+  },
+  {
+    "message": "消防ヘリ飛んでる",
+    "reaction": "yaba"
+  },
+  {
+    "message": "おっけい待ってね",
+    "reaction": "seyana"
+  },
+  {
+    "message": "までやからまだいける",
+    "reaction": "ne"
+  },
+  {
+    "message": "後期委員長になりますか？",
+    "reaction": "ha"
+  },
+  {
+    "message": "私がなります",
+    "reaction": "doushite"
+  },
+  {
+    "message": "おねロリを信仰するんや",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "めっちゃ真面目に解いてるやんけ",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "二つで連立立てたら普通に出るで",
+    "reaction": "ne"
+  },
+  {
+    "message": "わしは全部写しとるがな",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "普通にわからん",
+    "reaction": "seyana"
+  },
+  {
+    "message": "やっぱ捨てようか",
+    "reaction": "sorena"
+  },
+  {
+    "message": "メソッドの引数がちゃうで",
+    "reaction": "sorena"
+  },
+  {
+    "message": "近いのは明日プロ演",
+    "reaction": "yaba"
+  },
+  {
+    "message": "やっぱり何するにもモチベが全て",
+    "reaction": "sorena"
+  },
+  {
+    "message": "で力尽きた",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "計算おかしくね",
+    "reaction": "kusa"
+  },
+  {
+    "message": "目標は時までに終わらせる",
+    "reaction": "seyana"
+  },
+  {
+    "message": "よしおやすみ",
+    "reaction": "doushite"
+  },
+  {
+    "message": "のやつやけど多分一緒",
+    "reaction": "iine"
+  },
+  {
+    "message": "やばい物理嫌すぎて猫の動画に逃げてました",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "おやすみなさい",
+    "reaction": "ok"
+  },
+  {
+    "message": "形式で話すとが育つ的な",
+    "reaction": "naruhodo"
+  },
+  {
+    "message": "マックを晩ご飯に含めるなら第次晩ご飯大戦",
+    "reaction": "majika"
+  },
+  {
+    "message": "ありがとうございます",
+    "reaction": "ok"
+  },
+  {
+    "message": "レッツノートはごみ",
+    "reaction": "tashikani"
+  },
+  {
+    "message": "探さないでください",
+    "reaction": "ha"
+  },
+  {
+    "message": "なんか創価めっちゃ車おる",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "ふざけんな",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "物理も憎しみを込めて折りました",
+    "reaction": "shitteta"
+  },
+  {
+    "message": "もし先生来たらいってほしいです",
+    "reaction": "ok"
+  },
+  {
+    "message": "俺トイレで遅れる可能性があります",
+    "reaction": "doushite"
+  },
+  {
+    "message": "いやエラー起きまくるんだが",
+    "reaction": "kawaii"
+  },
+  {
+    "message": "ノー勉はやめといたほうが良い",
+    "reaction": "kusa"
+  },
+  {
+    "message": "乗るしかないこのビッグウェーブに",
+    "reaction": "dame"
+  },
+  {
+    "message": "彼氏の役で育ててたらこうなったらしい",
+    "reaction": "www"
+  },
+  {
+    "message": "バカを通り越して脳が破損してるぞマジで",
+    "reaction": "www"
+  },
+  {
+    "message": "ちなみに新環境相は小泉よりやばいらしい",
+    "reaction": "kusa"
+  }
+]
