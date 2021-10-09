@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 import requests
 import json
 import random
@@ -10,6 +11,15 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print("I'm on ready...")
+
+
+@commands.command()
+async def deploy(ctx):
+    await ctx.send('Deploy!')
+
+
+def setup(bot):
+    bot.add_command(deploy)
 
 
 @client.event
