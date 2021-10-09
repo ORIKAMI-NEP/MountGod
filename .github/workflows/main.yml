@@ -1,0 +1,12 @@
+name: deploy
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - run: |
+          cd C:\MountGod\
+          git --git-dir=.git pull origin master
+          python MountGod.py
