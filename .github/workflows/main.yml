@@ -9,5 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          cd /home/ubuntu/Orikami/MountGod
+          cd /home/ubuntu/orikami/mountgod
           git pull
