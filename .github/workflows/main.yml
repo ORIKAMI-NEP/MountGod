@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: appleboy/ssh-action@master
+      - uses: actions/checkout@master
       - run: |
           cd /home/ubuntu/Orikami/MountGod
           git pull origin master
