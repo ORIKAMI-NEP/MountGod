@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          cd ~/Orikami/MountGod/
+          cd /home/ubuntu/Orikami/MountGod/
           git pull
