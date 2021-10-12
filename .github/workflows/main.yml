@@ -15,5 +15,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/home/ubuntu/Orikami/MountGod/
+            git status
             git pull origin master
