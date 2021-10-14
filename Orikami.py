@@ -1,0 +1,2 @@
+def Orikami():
+    print("Orikami")
