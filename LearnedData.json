@@ -401,7 +401,7 @@
   },
   {
     "message": "ありがとうございます",
-    "reaction": "ok"
+    "reaction": "ieie"
   },
   {
     "message": "レッツノートはごみ",
@@ -474,5 +474,25 @@
   {
     "message": "トランスジェンダーになりました",
     "reaction": "majika"
+  },
+  {
+    "message": "ありがとう",
+    "reaction": "ieie"
+  },
+  {
+    "message": "あいつが戦犯や",
+    "reaction": "buchigire"
+  },
+  {
+    "message": "新たな機能を実装しました",
+    "reaction": "kami"
+  },
+  {
+    "message": "運転してたら前から車が",
+    "reaction": "sassi"
+  },
+  {
+    "message": "あのバグ修正しといたよ",
+    "reaction": "tasukaru"
   }
 ]
