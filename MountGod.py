@@ -133,7 +133,7 @@ async def on_reaction_add(reaction, user):
 
 
 def extractJapanese(message):
-    return re.sub(r"[^ぁ-んァ-ンヴヵヶ一-龥々〆ー？]", "", message[message.rfind(
+    return re.sub(r"[^ぁ-んァ-ンゔヴヵヶ一-龥々〆ー？]", "", message[message.rfind(
         "\n")+1:])
 
 
