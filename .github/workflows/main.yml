@@ -18,4 +18,4 @@ jobs:
           script: |
             cd ~/MountGod/
             git pull origin master
-            git push origin main
+            git push origin master
