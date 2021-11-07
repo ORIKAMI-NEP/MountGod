@@ -17,7 +17,7 @@ async def on_ready():
 
 @commands.command()
 async def deploy(ctx):
-    await ctx.send('Deploy!')
+    await ctx.send("Deploy!")
 
 
 def setup(bot):
