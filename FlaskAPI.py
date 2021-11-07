@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def hello_world():
-    return jsonify({"message": "Hello world"})
+    return jsonify({"message": "API取得に成功！！！(/ω＼)ｲﾔﾝ"})
 
 
 if __name__ == "__main__":
