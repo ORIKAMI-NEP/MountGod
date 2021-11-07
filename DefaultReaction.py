@@ -29,7 +29,7 @@ def LearnReaction(reaction):
                         dict({"message": message, "reaction": reactionAlias}))
             with open("LearnedData.json", "wb") as LearnedDataFile:
                 LearnedDataFile.write(json.dumps(
-                    LearnedData, ensure_ascii=False, indent=2, separators=(',', ': ')).encode("utf-8"))
+                    LearnedData, ensure_ascii=False, indent=2, separators=(",", ": ")).encode("utf-8"))
                 LearnedDataFile.write("\n".encode())
             if "\\fl" in reaction.message.content:
                 relearning = ""
