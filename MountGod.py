@@ -43,9 +43,9 @@ async def on_message(message):
         if "芽衣ちゃんおいで" in message.content:
             await client.get_channel(777032856286396456).connect()
 
-        data = requests.get(
-            "http://localhost:51401/").json()
-        await message.channel.send(data.message)
+        if "芽衣ちゃんおいで" in message.content:
+            data = requests.get("http://localhost:51401/").json()
+            await message.channel.send(data.message)
 
         returnValue = RandomReaction()
         if(returnValue[0] is not None):
