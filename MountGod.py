@@ -3,6 +3,7 @@ from discord.ext import commands
 import json
 from python.VoiceChannelNotification import VoiceChannelNotification
 from python.RandomReaction import RandomReaction
+from python.VoiceChannelControl import VoiceChannelControl
 from python.AIReply import AIReply
 from python.DefaultReaction import LearnReaction, ReturnReaction
 from python.KeyWordReaction import KeyWordReaction
@@ -28,44 +29,51 @@ def setup(bot):
 @client.event
 async def on_voice_state_update(member, before, after):
     if not member.bot:
-        if after.channel is None:
-            await member.guild.voice_client.disconnect()
-
         returnValue = VoiceChannelNotification(
             member, before.channel, after.channel)
-        if(returnValue is not None):
+        if returnValue is not None:
             await client.get_channel(890784320149663834).send(returnValue)
 
 
 @client.event
 async def on_message(message):
     if not message.author.bot:
-        if "芽衣ちゃんおいで" in message.content:
-            await client.get_channel(777032856286396456).connect()
-
         returnValue = RandomReaction()
-        if(returnValue[0] is not None):
+        if returnValue[0] is not None:
             await message.add_reaction(returnValue[0])
             await message.add_reaction(returnValue[1])
 
-        if(message.channel.id in [887849368772804678]):
+        returnValue = VoiceChannelControl(message)
+        if returnValue is not None:
+            if returnValue:
+                try:
+                    await message.author.voice.channel.connect()
+                except:
+                    pass
+            else:
+                try:
+                    await message.guild.voice_client.disconnect()
+                except:
+                    pass
+
+        if message.channel.id in [887849368772804678]:
             returnValue = AIReply(message.content)
-            if(returnValue is not None):
+            if returnValue is not None:
                 await message.channel.send(returnValue)
 
             returnValue = ReturnReaction(message.content)
-            if(returnValue[0] is not None):
+            if returnValue[0] is not None:
                 await message.add_reaction(returnValue[0])
                 await message.add_reaction(returnValue[1])
 
             returnValue = KeyWordReaction(message.content)
-            if(returnValue[0] is not None):
+            if returnValue[0] is not None:
                 await message.add_reaction(returnValue[0])
-            if(returnValue[1] is not None):
+            if returnValue[1] is not None:
                 await message.channel.send(returnValue[1])
 
             returnValue = WeatherForecast(message.content)
-            if(returnValue is not None):
+            if returnValue is not None:
                 await message.channel.send(returnValue)
 
 
@@ -73,7 +81,7 @@ async def on_message(message):
 async def on_reaction_add(reaction, user):
     if not user.bot:
         returnValue = LearnReaction(reaction)
-        if(returnValue is not None):
+        if returnValue is not None:
             await reaction.message.channel.send(returnValue)
 
 
