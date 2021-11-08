@@ -20,10 +20,10 @@ def AIReplyAPI():
                             num_return_sequences=1, pad_token_id=tokenizer.eos_token_id)
     output = tokenizer.batch_decode(result)[0]
     pattern = re.compile(message.replace("?", "\?"))
-    output = pattern.sub('', output)
+    output = pattern.sub("", output)
     output = re.sub(r"^</s> ", "", output)
-    output = output.replace("</s>", '').replace("<unk> ",
-                                                '').replace("<|endoftext|>", '')
+    output = output.replace("</s>", "").replace("<unk> ",
+                                                "").replace("<|endoftext|>", "")
     return jsonify({output+" ( %.5f [sec] )" % (time.time() - startTime)})
 
 
