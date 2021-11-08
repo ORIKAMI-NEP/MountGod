@@ -1,7 +1,7 @@
 import json
 import random
 import Levenshtein
-from ExtractJapanese import ExtractJapanese
+from python.ExtractJapanese import ExtractJapanese
 
 
 def LearnReaction(reaction):
@@ -9,14 +9,14 @@ def LearnReaction(reaction):
     if str(reaction.emoji) in "<a:iikaeshi:889297289401761852>" or "\\fl" in reaction.message.content:
         reactionAlias = str(
             reaction.message.reactions[0])[2:str(reaction.message.reactions[0]).rfind(":")]
-        with open("DefaultReaction.json", "r", encoding="utf-8") as DefaultReaction:
+        with open("json/DefaultReaction.json", "r", encoding="utf-8") as DefaultReaction:
             DefaultReaction = json.load(DefaultReaction)
             if reactionAlias not in DefaultReaction:
                 return
             message = ExtractJapanese(reaction.message.content)
             if len(message) > 20 or len(message) < 5:
                 return
-            with open("LearnedData.json", "r", encoding="utf-8") as LearnedData:
+            with open("json/LearnedData.json", "r", encoding="utf-8") as LearnedData:
                 LearnedData = json.load(LearnedData)
                 messageExists = False
                 for data in LearnedData:
@@ -27,7 +27,7 @@ def LearnReaction(reaction):
                 if not messageExists:
                     LearnedData.append(
                         dict({"message": message, "reaction": reactionAlias}))
-            with open("LearnedData.json", "wb") as LearnedDataFile:
+            with open("json/LearnedData.json", "wb") as LearnedDataFile:
                 LearnedDataFile.write(json.dumps(
                     LearnedData, ensure_ascii=False, indent=2, separators=(",", ": ")).encode("utf-8"))
                 LearnedDataFile.write("\n".encode())
@@ -47,7 +47,7 @@ def ReturnReaction(message):
     if "\\fl" not in message:
         messageContent = ExtractJapanese(message)
         if len(messageContent) <= 20 and len(messageContent) >= 5:
-            with open("LearnedData.json", "r", encoding="utf-8") as LearnedData, open("DefaultReaction.json", "r", encoding="utf-8") as DefaultReaction:
+            with open("json/LearnedData.json", "r", encoding="utf-8") as LearnedData, open("json/DefaultReaction.json", "r", encoding="utf-8") as DefaultReaction:
                 LearnedData = json.load(LearnedData)
                 random.shuffle(LearnedData)
                 ApproximateWord = ["", 100]

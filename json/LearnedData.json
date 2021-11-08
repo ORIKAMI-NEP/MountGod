@@ -494,5 +494,9 @@
   {
     "message": "あのバグ修正しといたよ",
     "reaction": "tasukaru"
+  },
+  {
+    "message": "俺はまだ死にたくない",
+    "reaction": "desuyone"
   }
 ]

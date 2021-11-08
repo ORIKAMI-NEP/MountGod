@@ -1,12 +1,12 @@
-import requests
 import discord
 from discord.ext import commands
 import json
-from VoiceChannelNotification import VoiceChannelNotification
-from RandomReaction import RandomReaction
-from DefaultReaction import LearnReaction, ReturnReaction
-from KeyWordReaction import KeyWordReaction
-from WeatherForecast import WeatherForecast
+from python.VoiceChannelNotification import VoiceChannelNotification
+from python.RandomReaction import RandomReaction
+from python.AIReply import AIReply
+from python.DefaultReaction import LearnReaction, ReturnReaction
+from python.KeyWordReaction import KeyWordReaction
+from python.WeatherForecast import WeatherForecast
 client = discord.Client()
 
 
@@ -43,16 +43,16 @@ async def on_message(message):
         if "芽衣ちゃんおいで" in message.content:
             await client.get_channel(777032856286396456).connect()
 
-        if "芽衣ちゃんおいで" in message.content:
-            data = requests.get("http://localhost:51401/").json()
-            await message.channel.send(data.message)
-
         returnValue = RandomReaction()
         if(returnValue[0] is not None):
             await message.add_reaction(returnValue[0])
             await message.add_reaction(returnValue[1])
 
         if(message.channel.id in [887849368772804678]):
+            returnValue = AIReply(message.content)
+            if(returnValue is not None):
+                await message.channel.send(returnValue)
+
             returnValue = ReturnReaction(message.content)
             if(returnValue[0] is not None):
                 await message.add_reaction(returnValue[0])
@@ -77,4 +77,4 @@ async def on_reaction_add(reaction, user):
             await reaction.message.channel.send(returnValue)
 
 
-client.run(json.load(open("config.json", "r"))["token"])
+client.run(json.load(open("json/config.json", "r"))["token"])

@@ -5,7 +5,7 @@ import json
 def KeyWordReaction(message):
     returnValue = [None, None]
     random.seed()
-    with open("KeyWordReaction.json", "r", encoding="utf-8") as KeyWordReaction:
+    with open("json/KeyWordReaction.json", "r", encoding="utf-8") as KeyWordReaction:
         KeyWordReaction = json.load(KeyWordReaction)
         random.shuffle(KeyWordReaction)
         for data in KeyWordReaction:
