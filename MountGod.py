@@ -85,4 +85,4 @@ async def on_reaction_add(reaction, user):
             await reaction.message.channel.send(returnValue)
 
 
-client.run(json.load(open("json/config.json", "r"))["token"])
+client.run(json.load(open("./json/config.json", "r"))["token"])

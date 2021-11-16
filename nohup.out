@@ -1,0 +1,3 @@
+Task was destroyed but it is pending!
+task: <Task pending name='Task-60' coro=<Event.wait() done, defined at /usr/local/lib/python3.9/asyncio/locks.py:213> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0xb3e2c028>()]>>
+I'm on ready...
