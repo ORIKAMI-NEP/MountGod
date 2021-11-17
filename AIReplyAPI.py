@@ -5,8 +5,8 @@ import re
 
 app = Flask(__name__)
 
-tokenizer = T5Tokenizer.from_pretrained("../rinna/japanese-gpt2-medium")
-model = AutoModelForCausalLM.from_pretrained("../output/novel/")
+tokenizer = T5Tokenizer.from_pretrained("./rinna/japanese-gpt2-medium")
+model = AutoModelForCausalLM.from_pretrained("./output/novel/")
 
 
 @app.route("/", methods=["GET"])
