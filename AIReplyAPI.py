@@ -29,4 +29,7 @@ def AIReplyAPI():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=51401, debug=True)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d295278e97c2d8e638f85e95e5f2aab5345ac07
