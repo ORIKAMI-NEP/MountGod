@@ -1,3 +1,85 @@
 Task was destroyed but it is pending!
 task: <Task pending name='Task-60' coro=<Event.wait() done, defined at /usr/local/lib/python3.9/asyncio/locks.py:213> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0xb3e2c028>()]>>
 I'm on ready...
+2021-12-01 15:18:53.654760: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-12-01 15:18:53.654807: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+ * Serving Flask app 'AIReplyAPI' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://10.40.3.171:51401/ (Press CTRL+C to quit)
+ * Restarting with stat
+2021-12-01 15:18:56.480833: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-12-01 15:18:56.480878: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+ * Debugger is active!
+ * Debugger PIN: 342-159-773
+Traceback (most recent call last):
+  File "MountGod.py", line 1, in <module>
+    import discord
+ModuleNotFoundError: No module named 'discord'
+Traceback (most recent call last):
+  File "MountGod.py", line 8, in <module>
+    from python.DefaultReaction import LearnReaction, ReturnReaction
+  File "/home/orikami/CaseStudy2/MountGod/python/DefaultReaction.py", line 3, in <module>
+    import Levenshtein
+ModuleNotFoundError: No module named 'Levenshtein'
+202.231.44.130 - - [02/Dec/2021 09:05:01] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 2091, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 2076, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/orikami/CaseStudy2/MountGod/AIReplyAPI.py", line 11, in AIReplyAPI
+    message = request.args.get("message").rstrip().replace("？", "?")
+AttributeError: 'NoneType' object has no attribute 'rstrip'
+202.231.44.130 - - [02/Dec/2021 09:05:01] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:01] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:01] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:02] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:02] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:33] "GET /?message=どう？ HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 2091, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 2076, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/orikami/CaseStudy2/MountGod/AIReplyAPI.py", line 27, in AIReplyAPI
+    return jsonify({output+" ( %.5f [sec] )" % (time.time() - startTime)})
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/json/__init__.py", line 355, in jsonify
+    f"{dumps(data, indent=indent, separators=separators)}\n",
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/json/__init__.py", line 133, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/home/orikami/.local/lib/python3.7/site-packages/flask/json/__init__.py", line 57, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+202.231.44.130 - - [02/Dec/2021 09:05:33] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:33] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:34] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+202.231.44.130 - - [02/Dec/2021 09:05:34] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
