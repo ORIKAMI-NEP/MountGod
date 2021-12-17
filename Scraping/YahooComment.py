@@ -10,7 +10,7 @@ YahooRes = request.urlopen(YahooUrl)
 YahooSoup = BeautifulSoup(YahooRes, "html.parser")
 articles = [tag.get('href') for tag in YahooSoup(class_='newsFeed_item_link')]
 
-with open('comment.txt', 'w', encoding="utf-8", newline='\n')as f:
+with open('../../data/yahooComment.txt', 'w', encoding="utf-8", newline='\n')as f:
     for rank in range(0, 39):
         articleUrl = articles[rank]
         commentNum = 0
@@ -42,4 +42,3 @@ with open('comment.txt', 'w', encoding="utf-8", newline='\n')as f:
             print(str(rank + 1) + 'article:' + str(page) + "page...finish")
             page += 1
             f.writelines(comment)
-

@@ -34,7 +34,7 @@ api_url="https://api.syosetu.com/novelapi/api/"
 is_save_sqlite = False
 #####　以上設定、以下関数　##############
 
-with open("naroNovel.txt", "w", encoding="utf-8", newline="\n") as f:
+with open("../../data/naroNovel.txt", "w", encoding="utf-8", newline="\n") as f:
   df = pd.DataFrame()
 
   payload = {'out': 'json','gzip':5,'of':'n','lim':1}
