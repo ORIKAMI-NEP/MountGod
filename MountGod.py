@@ -62,6 +62,10 @@ async def on_message(message):
                 except:
                     pass
 
+        returnValue = WeatherForecast(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
+
         if message.channel.id in [887849368772804678]:
             returnValue = AIReply(message.content)
             if returnValue is not None:
@@ -72,10 +76,6 @@ async def on_message(message):
                 await message.add_reaction(returnValue[0])
                 await message.add_reaction(returnValue[1])
 
-            returnValue = WeatherForecast(message.content)
-            if returnValue is not None:
-                await message.channel.send(returnValue)
-
 
 @client.event
 async def on_reaction_add(reaction, user):
@@ -83,6 +83,5 @@ async def on_reaction_add(reaction, user):
         returnValue = LearnReaction(reaction)
         if returnValue is not None:
             await reaction.message.channel.send(returnValue)
-
 
 client.run(json.load(open("./json/config.json", "r"))["token"])
