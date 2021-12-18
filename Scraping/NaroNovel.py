@@ -103,7 +103,12 @@ with open("../../data/naroNovel.txt", "w", encoding="utf-8", newline="\n") as f:
     pre_info = soup.select_one("#pre_info").text
     pre_info = re.sub(r",", "",pre_info)
     # print(pre_info)
-    num_parts = int(re.search(r"全([0-9]+)部分", pre_info).group(1))
+    # num_parts = int(re.search(r"全([0-9]+)部分", pre_info).group(1))
+    try:
+      num_parts = int(re.search(r"全([0-9]+)部分", pre_info).group(1))
+    except:
+      print("pass")
+      continue
     
     for part in range(1, num_parts+1):
       deff = 14
