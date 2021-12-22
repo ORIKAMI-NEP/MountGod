@@ -1,6 +1,7 @@
 import time
 from urllib import request
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from bs4 import BeautifulSoup
 
@@ -8,7 +9,7 @@ from bs4 import BeautifulSoup
 PROXY = "{proxy.anan-nct.ac.jp}:{8080}"
 
 # ブラウザをバックグラウンド実行
-options = webdriver.ChromeOptions()
+options = Options()
 options.add_argument('--headless')
 options.add_argument('--proxy-server=http://%s' % PROXY)
 # ブラウザ起動
