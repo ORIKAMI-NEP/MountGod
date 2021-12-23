@@ -3,6 +3,7 @@ from urllib import request
 from bs4.element import Comment
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
+#from selenium.webdriver import Chrome
 from bs4 import BeautifulSoup
 
 # ブラウザをバックグラウンド実行
