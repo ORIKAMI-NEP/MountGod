@@ -1,23 +1,18 @@
 import time
 from urllib import request
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 #from selenium.webdriver import Chrome
 from bs4 import BeautifulSoup
 
-#プロキシ設定
-PROXY = "{proxy.anan-nct.ac.jp}:{8080}"
-
 # ブラウザをバックグラウンド実行
-options = webdriver.ChromeOptions()
+options = Options()
 options.add_argument('--headless')
-options.add_argument('--proxy-server=http://%s' % PROXY)
 # ブラウザ起動
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 # 対象要素のテキスト取得
-
-
 def getItem(element, name, name2):
     result = ""
     elem = element.find_elements_by_class_name(name)
@@ -29,8 +24,6 @@ def getItem(element, name, name2):
     return result
 
 # 認証者コメント出力(保留)
-
-
 def print_authorComment(comment):
     comment_boxes = driver.find_elements_by_css_selector(
         'li[id^="authorcomment-"]')
@@ -43,8 +36,6 @@ def print_authorComment(comment):
     return comment
 
 # 一般者コメント出力
-
-
 def print_generalComment(comment):
     comment = ""
     comment_boxes = driver.find_elements_by_css_selector('li[id^="comment-"]')
@@ -60,8 +51,6 @@ def print_generalComment(comment):
     return comment
 
 # 返信コメント出力
-
-
 def print_reply(element, reply, comment):
     # 「返信」 リンクを click
     rep_links = element.find_elements_by_css_selector('a.btnView.expandBtn')
