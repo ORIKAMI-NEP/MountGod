@@ -1,5 +1,4 @@
 import discord
-from discord import channel
 from discord.ext import tasks, commands
 import json
 from python.AIReply import AIReply
