@@ -1,11 +1,13 @@
 import discord
-from discord.ext import commands
+from discord import channel
+from discord.ext import tasks, commands
 import json
 from python.AIReply import AIReply
 from python.DefaultReaction import LearnReaction, ReturnReaction
+from python.Help import Help
 from python.KeyWordReaction import KeyWordReaction
 from python.RandomReaction import RandomReaction
-from python.Reminder import Reminder
+from python.Reminder import SetReminder, GetReminder, RemoveReminder, RunReminder
 from python.VoiceChannelControl import VoiceChannelControl
 from python.VoiceChannelNotification import VoiceChannelNotification
 from python.WeatherForecast import WeatherForecast
@@ -16,6 +18,7 @@ client = discord.Client()
 async def on_ready():
     print("I'm on ready...")
     await client.change_presence(activity=discord.Activity(name="木香井芽衣の憂鬱", type=discord.ActivityType.watching))
+    loop.start()
 
 
 @commands.command()
@@ -39,6 +42,10 @@ async def on_voice_state_update(member, before, after):
 @client.event
 async def on_message(message):
     if not message.author.bot:
+        returnValue = Help(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
+
         returnValue = KeyWordReaction(message.content)
         if returnValue[0] is not None:
             await message.add_reaction(returnValue[0])
@@ -50,7 +57,17 @@ async def on_message(message):
             await message.add_reaction(returnValue[0])
             await message.add_reaction(returnValue[1])
 
-        returnValue = Reminder()
+        returnValue = SetReminder(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
+
+        returnValue = GetReminder(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
+
+        returnValue = RemoveReminder(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
 
         returnValue = VoiceChannelControl(message)
         if returnValue is not None:
@@ -90,6 +107,9 @@ async def on_reaction_add(reaction, user):
 
 @tasks.loop(seconds=60.0)
 async def loop():
+    returnValue = RunReminder()
+    if returnValue is not None:
+        await client.get_channel(777032730595557389).send(returnValue)
 
 
 client.run(json.load(open("./json/config.json", "r"))["token"])

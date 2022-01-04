@@ -1,0 +1,24 @@
+[
+  {
+    "title": "AI文章：入力した文章に対してAIが適切な文章を返します",
+    "command": [
+      "\\ai *\"inputText\"*：Yahooニュースのコメント欄を学習したモデルを使用します",
+      "\\ai \\naroNovel *\"inputText\"*：なろう小説を学習したモデルを使用します"
+    ]
+  },
+  {
+    "title": "AIリアクション：入力した文章に対してAIが適切なリアクションを返します",
+    "command": [
+      "良い返し(リアクション)：付与されたリアクションが正しいことを学習させます",
+      "\\fl *\"inputText\"*：入力した文章に付与したリアクションが正しいことを学習させます（ForceLearn）"
+    ]
+  },
+  {
+    "title": "リマインダー：セットした時刻に指定したメッセージを送信します",
+    "command": [
+      "\\sr *\"year\"* *\"month\"* *\"day\"* *\"hour\"* *\"minute\"* *\"inputText\"*：リマインダーをセットします（SetReminder）",
+      "\\gr：セットされているリマインダーの一覧を表示します（GetReminder）",
+      "\\rr *\"reminderNumber\"*：\\grで表示した左の番号のリマインダーを削除します（RemoveReminder）"
+    ]
+  }
+]
