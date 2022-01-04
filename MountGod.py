@@ -5,6 +5,7 @@ from python.AIReply import AIReply
 from python.DefaultReaction import LearnReaction, ReturnReaction
 from python.KeyWordReaction import KeyWordReaction
 from python.RandomReaction import RandomReaction
+from python.Reminder import Reminder
 from python.VoiceChannelControl import VoiceChannelControl
 from python.VoiceChannelNotification import VoiceChannelNotification
 from python.WeatherForecast import WeatherForecast
@@ -49,6 +50,8 @@ async def on_message(message):
             await message.add_reaction(returnValue[0])
             await message.add_reaction(returnValue[1])
 
+        returnValue = Reminder()
+
         returnValue = VoiceChannelControl(message)
         if returnValue is not None:
             if returnValue:
@@ -83,5 +86,10 @@ async def on_reaction_add(reaction, user):
         returnValue = LearnReaction(reaction)
         if returnValue is not None:
             await reaction.message.channel.send(returnValue)
+
+
+@tasks.loop(seconds=60.0)
+async def loop():
+
 
 client.run(json.load(open("./json/config.json", "r"))["token"])
