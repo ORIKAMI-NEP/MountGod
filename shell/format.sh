@@ -1,6 +1,5 @@
 # sh format.sh naroNovel
 cat "data/$1.txt" |\
-    perl -pe "s#[^ｦ-ﾟぁ-ゟァ-ー亜-腕弌-熙？]##g" |\
     perl -pe "s#\r\n#\n#g" |\
     perl -pe "s#(.*?(。|!|！|\?|？))#\1\n#g" |\
     perl -pe "s#^\n##g" > "data/data.txt"
