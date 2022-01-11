@@ -24,7 +24,10 @@ def AIReplyAPI():
     output = re.sub(r"^</s> ", "", output)
     output = output.replace("</s>", "").replace("<unk> ",
                                                 "").replace("<|endoftext|>", "")
-    return jsonify({output+" ( %.5f [sec] )" % (time.time() - startTime)})
+    if output is None:
+        return jsonify({"結果を出力できませんでした。AIの学習が不足しています。"})
+    else:
+        return jsonify({output+" ( %.5f [sec] )" % (time.time() - startTime)})
 
 
 if __name__ == "__main__":
