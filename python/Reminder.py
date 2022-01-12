@@ -52,7 +52,7 @@ def RemoveReminder(message):
                 try:
                     del ReminderData[int(messageArray[1])]
                 except Exception as e:
-                    return "エラー：" + str(e.args[0])
+                    return "エラー：" + e
             with open("json/ReminderData.json", "wb") as ReminderDataFile:
                 ReminderDataFile.write(json.dumps(
                     ReminderData, ensure_ascii=False, indent=2, separators=(",", ": ")).encode("utf-8"))
