@@ -41,6 +41,10 @@ async def on_voice_state_update(member, before, after):
 @client.event
 async def on_message(message):
     if not message.author.bot:
+        returnValue = AIReply(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
+
         returnValue = Help(message.content)
         if returnValue is not None:
             await message.channel.send(returnValue)
@@ -86,10 +90,6 @@ async def on_message(message):
             await message.channel.send(returnValue)
 
         if message.channel.id in [887849368772804678]:
-            returnValue = AIReply(message.content)
-            if returnValue is not None:
-                await message.channel.send(returnValue)
-
             returnValue = ReturnReaction(message.content)
             if returnValue[0] is not None:
                 await message.add_reaction(returnValue[0])
