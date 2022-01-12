@@ -13,3 +13,4 @@ def AIReply(message):
         except Exception as e:
             return "エラー：" + e
     return returnValue
+
