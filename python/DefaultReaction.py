@@ -1,7 +1,7 @@
 import json
 import random
 import Levenshtein
-from ExtractJapanese import ExtractJapanese
+from python.ExtractJapanese import ExtractJapanese
 
 
 def LearnReaction(reaction):

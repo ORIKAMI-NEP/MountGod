@@ -1,6 +1,6 @@
 import subprocess
 import requests
-from ExtractJapanese import ExtractJapanese
+from python.ExtractJapanese import ExtractJapanese
 
 
 def AIReply(message):
