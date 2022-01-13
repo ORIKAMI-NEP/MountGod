@@ -1,5 +1,5 @@
 import subprocess
-import chardet
+import sys
 import requests
 from python.ExtractJapanese import ExtractJapanese
 
@@ -12,16 +12,7 @@ def AIReply(message):
         try:
             # returnValue = requests.get("http://10.40.3.171:51400/?message="+message).json()
             AIReply = subprocess.run(
-<<<<<<< HEAD
-                ["sshpass", "-p", "nepgear325", "ssh", "1196316@202.231.44.104", "curl", url], stdout=subprocess.PIPE)
-            AIReply = AIReply.stdout.decode(chardet.detect(AIReply.stdout)["encoding"])
-=======
-<<<<<<< HEAD
-                ["sshpass", "-p", "nepgear325", "ssh", "1196316@202.231.44.104", "curl", url], encoding='utf-8', stdout=subprocess.PIPE).stdout #.decode("cp932")
-=======
-                ["sshpass", "-p", "nepgear325", "ssh", "1196316@202.231.44.104", "curl", url], encoding="shift-jis", stdout=subprocess.PIPE).stdout
->>>>>>> c1ef20b90a28086e84f511c4a7edcacda832f048
->>>>>>> d481e767561c29f4592638663109b75494b1b448
+                ["sshpass", "-p", "nepgear325", "ssh", "1196316@202.231.44.104", "curl", url], encoding=sys.stdin.encode, stdout=subprocess.PIPE).stdout
             returnValue = ExtractJapanese(AIReply)
         except Exception as e:
             return "エラー：" + str(e)
