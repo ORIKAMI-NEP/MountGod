@@ -1,4 +1,5 @@
 import subprocess
+import sys
 import requests
 from python.ExtractJapanese import ExtractJapanese
 
