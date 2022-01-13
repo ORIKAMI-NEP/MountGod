@@ -25,7 +25,6 @@ def AIReplyAPI():
                                                 "").replace("<|endoftext|>", "")
     if output == "":
         output = "結果を出力できませんでした。AIの学習が不足しています。"
-    print(output)
     # return jsonify({output})
     return output
 
