@@ -11,9 +11,9 @@ def AIReplyAPI():
     message = request.args.get("message").rstrip().replace("？", "?")
     tokenizer = T5Tokenizer.from_pretrained("rinna/japanese-gpt2-small")
     model = AutoModelForCausalLM.from_pretrained("../output/yahooComment/")
-    if "\\naroNovel " in message:
+    if "naroNovel_" in message:
         model = AutoModelForCausalLM.from_pretrained("../output/naroNovel/")
-        message = message.replace("\\naroNovel ", "")
+        message = message.replace("naroNovel_", "")
     input_token = tokenizer.encode(message, return_tensors="pt")
     result = model.generate(input_token, do_sample=True, max_length=50,
                             num_return_sequences=1, pad_token_id=tokenizer.eos_token_id)
