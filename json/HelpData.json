@@ -3,7 +3,7 @@
     "title": "AI文章：入力した文章に対してAIが適切な文章を返します",
     "command": [
       "\\ai *\"inputText\"*：Yahooニュースのコメント欄を学習したモデルを使用します",
-      "\\ai \\naroNovel *\"inputText\"*：なろう小説を学習したモデルを使用します"
+      "\\ai naroNovel_*\"inputText\"*：なろう小説を学習したモデルを使用します"
     ]
   },
   {
