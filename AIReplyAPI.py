@@ -15,7 +15,7 @@ def AIReplyAPI():
         model = AutoModelForCausalLM.from_pretrained("../output/naroNovel/")
         message = message.replace("\\naroNovel ", "")
     input_token = tokenizer.encode(message, return_tensors="pt")
-    result = model.generate(input_token, do_sample=True, max_length=20,
+    result = model.generate(input_token, do_sample=True, max_length=50,
                             num_return_sequences=1, pad_token_id=tokenizer.eos_token_id)
     output = tokenizer.batch_decode(result)[0]
     pattern = re.compile(message.replace("?", "\?"))
