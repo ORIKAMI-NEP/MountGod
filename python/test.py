@@ -1,4 +1,4 @@
-import pymysql.cursors
+import pymysql
 import json
 
 with open("json/password.json", "r", encoding="utf-8") as Password:
