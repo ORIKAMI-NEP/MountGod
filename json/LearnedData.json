@@ -502,5 +502,13 @@
   {
     "message": "福田先生の毛はげんしょう傾向",
     "reaction": "sorena"
+  },
+  {
+    "message": "どうですか",
+    "reaction": "yoki"
+  },
+  {
+    "message": "を信じそう",
+    "reaction": "sorena"
   }
 ]

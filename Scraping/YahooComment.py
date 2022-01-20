@@ -3,6 +3,7 @@ from urllib import request
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
+#from selenium.webdriver import Chrome
 from bs4 import BeautifulSoup
 from selenium.common.exceptions import NoSuchElementException
 
