@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from bs4 import BeautifulSoup
+from selenium.common.exceptions import NoSuchElementException
 
 # ブラウザをバックグラウンド実行
 options = Options()
@@ -88,7 +89,8 @@ genre = ["domestic", "world", "business", "entertainment",
          "sports", "it-science", "life", "local"]
 
 # メインループ
-with open("../../data/yahooComment.txt", "w", encoding="utf-8", newline="")as f:
+# ../../data/yahooComment.txt
+with open("yahooComment.txt", "a", encoding="utf-8", newline="")as f:
     for i in range(0, 7):
         YahooUrl = "https://news.yahoo.co.jp/ranking/comment/" + genre[i]
         YahooRes = request.urlopen(YahooUrl)
@@ -104,21 +106,22 @@ with open("../../data/yahooComment.txt", "w", encoding="utf-8", newline="")as f:
                 driver.get(
                     articleUrl + "/comments?order=recommended&page=" + str(page))
                 time.sleep(2)
-                iframe = driver.find_element_by_class_name(
-                    "news-comment-plguin-iframe")
-                driver.switch_to.frame(iframe)
-
-                if page == 1:
-                    # コメント数を取得
-                    maxComment = int(driver.find_element_by_css_selector(
-                        ".counter > span").text.strip("/""件"))
-                    maxPage = int(maxComment / 10) + 1
-                    if maxComment % 10 != 0:
-                        maxPage += 1
-                    # 認証者コメント(保留)
-                    # comment = print_authorComment(comment)
-                # 一般者コメント
-                comment = print_generalComment(comment)
-                f.writelines(comment)
-                page += 1
+                try:
+                    iframe = driver.find_element_by_class_name("news-comment-plguin-iframe")
+                    driver.switch_to.frame(iframe)
+                    if page == 1:
+                        # コメント数を取得
+                        maxComment = int(driver.find_element_by_css_selector(".counter > span").text.strip("/""件"))
+                        maxPage = int(maxComment / 10) + 1
+                        if maxComment % 10 != 0:
+                            maxPage += 1
+                        # 認証者コメント(保留)
+                        # comment = print_authorComment(comment)
+                    # 一般者コメント
+                    comment = print_generalComment(comment)
+                    f.writelines(comment)
+                    page += 1
+                except NoSuchElementException:
+                    page += 1
+                    continue
     driver.quit()
