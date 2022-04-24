@@ -7,6 +7,7 @@ from python.Help import Help
 from python.KeyWordReaction import KeyWordReaction
 from python.RandomReaction import RandomReaction
 from python.Reminder import SetReminder, GetReminder, RemoveReminder, RunReminder
+from python.Speak import Speak
 from python.VoiceChannelControl import VoiceChannelControl
 from python.VoiceChannelNotification import VoiceChannelNotification
 from python.WeatherForecast import WeatherForecast
@@ -71,6 +72,12 @@ async def on_message(message):
         returnValue = RemoveReminder(message.content)
         if returnValue is not None:
             await message.channel.send(returnValue)
+
+        if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(777032730595557387).voice_client is not None:
+            returnValue = Speak(message.content)
+            if returnValue is not None:
+                message.guild.voice_client.play(
+                    discord.FFmpegPCMAudio("message.wav"))
 
         returnValue = VoiceChannelControl(message)
         if returnValue is not None:
