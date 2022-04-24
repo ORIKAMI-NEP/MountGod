@@ -78,7 +78,7 @@ async def on_message(message):
                 returnValue = Speak(message.content)
                 if returnValue is not None:
                     message.guild.voice_client.play(
-                        discord.FFmpegPCMAudio("./message.wav"))
+                        discord.FFmpegPCMAudio("message.wav"))
         except:
             pass
 

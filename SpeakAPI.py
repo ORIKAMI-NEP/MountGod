@@ -24,7 +24,7 @@ def SpeakAPI():
         params=params,
         data=json.dumps(audio_query.json())
     )
-    messageData = wave.open("./message.wav", "wb")
+    messageData = wave.open("message.wav", "wb")
     messageData.setnchannels(1)
     messageData.setsampwidth(2)
     messageData.setframerate(24000)
