@@ -75,13 +75,16 @@ async def on_message(message):
         if returnValue is not None:
             await message.channel.send(returnValue)
 
-        if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(777032730595557387).voice_client is not None:
-            returnValue = Speak(message.content)
-            if returnValue is not None:
-                while client.get_guild(777032730595557387).voice_client.is_playing():
-                    await asyncio.sleep(0.1)
-                client.get_guild(777032730595557387).voice_client.play(
-                    discord.FFmpegPCMAudio("message.wav"))
+        try:
+            if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(777032730595557387).voice_client is not None:
+                returnValue = Speak(message.content)
+                if returnValue is not None:
+                    while client.get_guild(777032730595557387).voice_client.is_playing():
+                        await asyncio.sleep(0.1)
+                    client.get_guild(777032730595557387).voice_client.play(
+                        discord.FFmpegPCMAudio("message.wav"))
+        except:
+            pass
 
         returnValue = SpeakerControl(message.content)
         if returnValue is not None:
