@@ -510,5 +510,13 @@
   {
     "message": "を信じそう",
     "reaction": "sorena"
+  },
+  {
+    "message": "こんな夜にだろう",
+    "reaction": "sassi"
+  },
+  {
+    "message": "ちゃんおいで",
+    "reaction": "ok"
   }
 ]
