@@ -1,6 +1,7 @@
 import discord
 from discord.ext import tasks, commands
 import json
+import asyncio
 from python.AIReply import AIReply
 from python.DefaultReaction import LearnReaction, ReturnReaction
 from python.Help import Help
@@ -8,6 +9,7 @@ from python.KeyWordReaction import KeyWordReaction
 from python.RandomReaction import RandomReaction
 from python.Reminder import SetReminder, GetReminder, RemoveReminder, RunReminder
 from python.Speak import Speak
+from python.SpeakerControl import SpeakerControl
 from python.VoiceChannelControl import VoiceChannelControl
 from python.VoiceChannelNotification import VoiceChannelNotification
 from python.WeatherForecast import WeatherForecast
@@ -73,14 +75,17 @@ async def on_message(message):
         if returnValue is not None:
             await message.channel.send(returnValue)
 
-        try:
-            if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(777032730595557387).voice_client is not None:
-                returnValue = Speak(message.content)
-                if returnValue is not None:
-                    message.guild.voice_client.play(
-                        discord.FFmpegPCMAudio("message.wav"))
-        except:
-            pass
+        if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(777032730595557387).voice_client is not None:
+            returnValue = Speak(message.content)
+            if returnValue is not None:
+                while client.get_guild(777032730595557387).voice_client.is_playing():
+                    await asyncio.sleep(0.1)
+                client.get_guild(777032730595557387).voice_client.play(
+                    discord.FFmpegPCMAudio("message.wav"))
+
+        returnValue = SpeakerControl(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
 
         returnValue = VoiceChannelControl(message)
         if returnValue is not None:
