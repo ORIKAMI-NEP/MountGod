@@ -14,7 +14,7 @@ def LearnReaction(reaction):
             if reactionAlias not in DefaultReaction:
                 return
             message = ExtractJapanese(reaction.message.content[reaction.message.content.rfind(
-        "\n")+1:])
+                "\n")+1:])
             if len(message) > 20 or len(message) < 5:
                 return
             with open("json/LearnedData.json", "r", encoding="utf-8") as LearnedData:
