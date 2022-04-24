@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def SpeakAPI():
     message = request.args.get("message")
-    message = "こんにちは"
     params = (
         ("text", message),
         ("speaker", 1),
