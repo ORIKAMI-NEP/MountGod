@@ -518,5 +518,9 @@
   {
     "message": "ちゃんおいで",
     "reaction": "ok"
+  },
+  {
+    "message": "殺されたいようやなぁ",
+    "reaction": "tashikani"
   }
 ]
