@@ -14,12 +14,9 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
           script: |
-            eval `ssh-agent`
-            ssh-add ~/.ssh/id_ed25519
             cd ~/MountGod/
             git pull origin master
             git add .
-            git commit -m "Update"
+            git commit -m "Updated"
             git push origin master
