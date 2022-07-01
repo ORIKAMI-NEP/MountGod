@@ -16,5 +16,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
           script: |
-            ls
-            pwd
+            cd ~/MountGod/
+            git pull origin master
+            git add .
+            git commit -m "Updatea"
+            git push origin master
