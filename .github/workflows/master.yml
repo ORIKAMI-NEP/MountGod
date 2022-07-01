@@ -19,5 +19,5 @@ jobs:
             cd ~/MountGod/
             git pull origin master
             git add .
-            git commit -m "Updated"
+            git commit -m "Update"
             git push origin master
