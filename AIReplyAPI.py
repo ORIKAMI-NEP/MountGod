@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
 from transformers import T5Tokenizer, AutoModelForCausalLM
 import time
 import re
@@ -25,7 +25,6 @@ def AIReplyAPI():
                                                 "").replace("<|endoftext|>", "")
     if output == "":
         output = "結果を出力できませんでした。AIの学習が不足しています。"
-    # return jsonify({output})
     return output
 
 
