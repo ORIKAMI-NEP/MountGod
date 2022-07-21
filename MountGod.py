@@ -1,7 +1,7 @@
 import discord
 from discord.ext import tasks, commands
-import json
 import asyncio
+import json
 from python.AIReply import AIReply
 from python.DefaultReaction import LearnReaction, ReturnReaction
 from python.Help import Help

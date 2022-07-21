@@ -1,9 +1,9 @@
-import requests
-import json
-import wave
 import glob
+import json
 import numpy as np
 from pydub import AudioSegment
+import requests
+import wave
 
 
 def Speak(message):

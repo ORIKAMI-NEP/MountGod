@@ -1,6 +1,6 @@
 import json
-import random
 import Levenshtein
+import random
 from python.ExtractJapanese import ExtractJapanese
 
 

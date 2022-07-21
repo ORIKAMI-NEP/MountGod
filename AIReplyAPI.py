@@ -1,6 +1,5 @@
 from flask import Flask, request
 from transformers import T5Tokenizer, AutoModelForCausalLM
-import time
 import re
 
 app = Flask(__name__)
