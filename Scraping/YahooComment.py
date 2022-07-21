@@ -14,6 +14,8 @@ options.add_argument('--headless')
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 # 対象要素のテキスト取得
+
+
 def getItem(element, name, name2):
     result = ""
     elem = element.find_elements_by_class_name(name)
@@ -25,6 +27,8 @@ def getItem(element, name, name2):
     return result
 
 # 認証者コメント出力(保留)
+
+
 def print_authorComment(comment):
     comment_boxes = driver.find_elements_by_css_selector(
         'li[id^="authorcomment-"]')
@@ -37,6 +41,8 @@ def print_authorComment(comment):
     return comment
 
 # 一般者コメント出力
+
+
 def print_generalComment(comment):
     comment = ""
     comment_boxes = driver.find_elements_by_css_selector('li[id^="comment-"]')
@@ -52,6 +58,8 @@ def print_generalComment(comment):
     return comment
 
 # 返信コメント出力
+
+
 def print_reply(element, reply, comment):
     # 「返信」 リンクを click
     rep_links = element.find_elements_by_css_selector('a.btnView.expandBtn')
@@ -108,11 +116,13 @@ with open("yahooComment.txt", "a", encoding="utf-8", newline="")as f:
                     articleUrl + "/comments?order=recommended&page=" + str(page))
                 time.sleep(2)
                 try:
-                    iframe = driver.find_element_by_class_name("news-comment-plguin-iframe")
+                    iframe = driver.find_element_by_class_name(
+                        "news-comment-plguin-iframe")
                     driver.switch_to.frame(iframe)
                     if page == 1:
                         # コメント数を取得
-                        maxComment = int(driver.find_element_by_css_selector(".counter > span").text.strip("/""件"))
+                        maxComment = int(driver.find_element_by_css_selector(
+                            ".counter > span").text.strip("/""件"))
                         maxPage = int(maxComment / 10) + 1
                         if maxComment % 10 != 0:
                             maxPage += 1
