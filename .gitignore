@@ -2,4 +2,4 @@ config.json
 password.json
 message.wav
 nohup.out
-python/__pycache__/
+python/__pycache__/*
