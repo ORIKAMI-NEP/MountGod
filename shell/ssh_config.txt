@@ -1,8 +1,0 @@
-# ~/.ssh/config
-
-Host github.com
-    User git
-    Hostname ssh.github.com
-    Port 443
-    IdentityFile ~/.ssh/id_ed25519
-    ProxyCommand nc -X connect -x proxy.anan-nct.ac.jp:8080 %h %p
