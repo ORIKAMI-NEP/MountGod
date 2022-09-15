@@ -1,7 +1,7 @@
 import json
 
 
-def SpeakerControl(message):
+def ControlSpeaker(message):
     returnValue = None
     if "\\cs" in message:
         messageArray = message.split()

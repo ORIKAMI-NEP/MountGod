@@ -2,16 +2,16 @@ import discord
 from discord.ext import tasks, commands
 import asyncio
 import json
+from python.AIReaction import LearnAIReaction, ReturnAIReaction
 from python.AIReply import AIReply
-from python.DefaultReaction import LearnReaction, ReturnReaction
+from python.ControlSpeaker import ControlSpeaker
+from python.ControlVoiceChannel import ControlVoiceChannel
 from python.Help import Help
-from python.KeyWordReaction import KeyWordReaction
-from python.RandomReaction import RandomReaction
+from python.NoticeVoiceChannel import NoticeVoiceChannel
 from python.Reminder import SetReminder, GetReminder, RemoveReminder, RunReminder
+from python.ReturnKeyWordReaction import ReturnKeyWordReaction
+from python.ReturnRandomReaction import ReturnRandomReaction
 from python.Speak import Speak
-from python.SpeakerControl import SpeakerControl
-from python.VoiceChannelControl import VoiceChannelControl
-from python.VoiceChannelNotification import VoiceChannelNotification
 from python.WeatherForecast import WeatherForecast
 client = discord.Client()
 
@@ -35,7 +35,7 @@ def setup(bot):
 @client.event
 async def on_voice_state_update(member, before, after):
     if not member.bot:
-        returnValue = VoiceChannelNotification(
+        returnValue = NoticeVoiceChannel(
             member, before.channel, after.channel)
         if returnValue is not None:
             await client.get_channel(890784320149663834).send(returnValue)
@@ -52,13 +52,13 @@ async def on_message(message):
         if returnValue is not None:
             await message.channel.send(returnValue)
 
-        returnValue = KeyWordReaction(message.content)
+        returnValue = ReturnKeyWordReaction(message.content)
         if returnValue[0] is not None:
             await message.add_reaction(returnValue[0])
         if returnValue[1] is not None:
             await message.channel.send(returnValue[1])
 
-        returnValue = RandomReaction()
+        returnValue = ReturnRandomReaction()
         if returnValue[0] is not None:
             await message.add_reaction(returnValue[0])
             await message.add_reaction(returnValue[1])
@@ -86,11 +86,11 @@ async def on_message(message):
         except:
             pass
 
-        returnValue = SpeakerControl(message.content)
+        returnValue = ControlSpeaker(message.content)
         if returnValue is not None:
             await message.channel.send(returnValue)
 
-        returnValue = VoiceChannelControl(message)
+        returnValue = ControlVoiceChannel(message)
         if returnValue is not None:
             if returnValue:
                 try:
@@ -108,7 +108,7 @@ async def on_message(message):
             await message.channel.send(returnValue)
 
         if message.channel.id in [887849368772804678]:
-            returnValue = ReturnReaction(message.content)
+            returnValue = ReturnAIReaction(message.content)
             if returnValue[0] is not None:
                 await message.add_reaction(returnValue[0])
                 await message.add_reaction(returnValue[1])
@@ -117,7 +117,7 @@ async def on_message(message):
 @client.event
 async def on_reaction_add(reaction, user):
     if not user.bot:
-        returnValue = LearnReaction(reaction)
+        returnValue = LearnAIReaction(reaction)
         if returnValue is not None:
             await reaction.message.channel.send(returnValue)
 

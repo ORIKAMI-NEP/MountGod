@@ -1,4 +1,4 @@
-def VoiceChannelNotification(member, beforeChannel, afterChannel):
+def NoticeVoiceChannel(member, beforeChannel, afterChannel):
     returnValue = None
     if beforeChannel != afterChannel and afterChannel is not None and afterChannel.id in [777032856286396456]:
         if member.id in [413611857778180096]:
