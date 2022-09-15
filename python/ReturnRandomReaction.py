@@ -1,7 +1,7 @@
 import random
 
 
-def RandomReaction():
+def ReturnRandomReaction():
     returnValue = [None, None]
     random.seed()
     if random.randrange(0, 10000) == 0:

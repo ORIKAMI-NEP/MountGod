@@ -4,7 +4,7 @@ import random
 from python.ExtractJapanese import ExtractJapanese
 
 
-def LearnReaction(reaction):
+def LearnAIReaction(reaction):
     returnValue = None
     if str(reaction.emoji) in "<a:iikaeshi:889297289401761852>" or "\\fl" in reaction.message.content:
         reactionAlias = str(
@@ -42,7 +42,7 @@ def LearnReaction(reaction):
     return returnValue
 
 
-def ReturnReaction(message):
+def ReturnAIReaction(message):
     returnValue = [None, None]
     random.seed()
     if "\\fl" not in message:

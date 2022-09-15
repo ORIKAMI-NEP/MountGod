@@ -2,7 +2,7 @@ import json
 import random
 
 
-def KeyWordReaction(message):
+def ReturnKeyWordReaction(message):
     returnValue = [None, None]
     random.seed()
     with open("json/KeyWordReaction.json", "r", encoding="utf-8") as KeyWordReaction:
