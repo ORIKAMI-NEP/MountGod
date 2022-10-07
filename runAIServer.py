@@ -1,6 +1,7 @@
-from flask import Flask, request
-from transformers import T5Tokenizer, AutoModelForCausalLM
 import re
+
+from flask import Flask, request
+from transformers import AutoModelForCausalLM, T5Tokenizer
 
 app = Flask(__name__)
 

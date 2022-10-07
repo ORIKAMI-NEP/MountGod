@@ -1,18 +1,22 @@
-import discord
-from discord.ext import tasks, commands
 import asyncio
 import json
+
+import discord
+from discord.ext import commands, tasks
+
 from python.AIReaction import LearnAIReaction, ReturnAIReaction
 from python.AIReply import AIReply
 from python.ControlSpeaker import ControlSpeaker
 from python.ControlVoiceChannel import ControlVoiceChannel
 from python.Help import Help
 from python.NoticeVoiceChannel import NoticeVoiceChannel
-from python.Reminder import SetReminder, GetReminder, RemoveReminder, RunReminder
+from python.Reminder import (GetReminder, RemoveReminder, RunReminder,
+                             SetReminder)
 from python.ReturnKeyWordReaction import ReturnKeyWordReaction
 from python.ReturnRandomReaction import ReturnRandomReaction
 from python.Speak import Speak
 from python.WeatherForecast import WeatherForecast
+
 client = discord.Client()
 
 
