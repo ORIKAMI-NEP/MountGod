@@ -21,6 +21,12 @@ from python.WeatherForecast import WeatherForecast
 client = discord.Client()
 load_dotenv()
 
+guildID = 1027574757186609243
+mainChannelID = 1027574758436511857
+testChannelID = 1045079269585457353
+noticeChannelID = 1045079380562550804
+voiceChannelID = 1035887203932459078
+
 
 @client.event
 async def on_ready():
@@ -42,9 +48,9 @@ def setup(bot):
 async def on_voice_state_update(member, before, after):
     if not member.bot:
         returnValue = NoticeVoiceChannel(
-            member, before.channel, after.channel)
+            member, before.channel, after.channel, voiceChannelID)
         if returnValue is not None:
-            await client.get_channel(890784320149663834).send(returnValue)
+            await client.get_channel(noticeChannelID).send(returnValue)
 
 
 @client.event
@@ -82,12 +88,12 @@ async def on_message(message):
             await message.channel.send(returnValue)
 
         try:
-            if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(777032730595557387).voice_client is not None:
+            if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(guildID).voice_client is not None:
                 returnValue = Speak(message.content)
                 if returnValue is not None:
-                    while client.get_guild(777032730595557387).voice_client.is_playing():
+                    while client.get_guild(guildID).voice_client.is_playing():
                         await asyncio.sleep(0.1)
-                    client.get_guild(777032730595557387).voice_client.play(
+                    client.get_guild(guildID).voice_client.play(
                         discord.FFmpegPCMAudio("message.wav"))
         except:
             pass
@@ -113,7 +119,7 @@ async def on_message(message):
         if returnValue is not None:
             await message.channel.send(returnValue)
 
-        if message.channel.id in [887849368772804678]:
+        if message.channel.id in [testChannelID]:
             returnValue = ReturnAIReaction(message.content)
             if returnValue[0] is not None:
                 await message.add_reaction(returnValue[0])
@@ -132,7 +138,7 @@ async def on_reaction_add(reaction, user):
 async def loop():
     returnValue = RunReminder()
     if returnValue is not None:
-        await client.get_channel(777032730595557389).send(returnValue)
+        await client.get_channel(mainChannelID).send(returnValue)
 
 
 client.run(os.getenv("token"))
