@@ -522,5 +522,13 @@
   {
     "message": "殺されたいようやなぁ",
     "reaction": "tashikani"
+  },
+  {
+    "message": "今日は学校きたくない",
+    "reaction": "desuyone"
+  },
+  {
+    "message": "学校にけないかもしれません",
+    "reaction": "dame"
   }
 ]
