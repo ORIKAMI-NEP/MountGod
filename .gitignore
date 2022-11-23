@@ -1,5 +1,4 @@
+.env
 __pycache__/
-config.json
 message.wav
 nohup.out
-password.json

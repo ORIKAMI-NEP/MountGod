@@ -1,8 +1,9 @@
 import asyncio
-import json
+import os
 
 import discord
 from discord.ext import commands, tasks
+from dotenv import load_dotenv
 
 from python.AIReaction import LearnAIReaction, ReturnAIReaction
 from python.AIReply import AIReply
@@ -18,6 +19,7 @@ from python.Speak import Speak
 from python.WeatherForecast import WeatherForecast
 
 client = discord.Client()
+load_dotenv()
 
 
 @client.event
@@ -133,4 +135,4 @@ async def loop():
         await client.get_channel(777032730595557389).send(returnValue)
 
 
-client.run(json.load(open("./json/config.json", "r"))["token"])
+client.run(os.getenv("token"))
