@@ -141,4 +141,4 @@ async def loop():
         await client.get_channel(mainChannelID).send(returnValue)
 
 
-client.run(os.getenv("token"))
+client.run(os.getenv("TOKEN"))
