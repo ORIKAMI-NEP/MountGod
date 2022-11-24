@@ -10,7 +10,7 @@ from python.AIReply import AIReply
 from python.ControlSpeaker import ControlSpeaker
 from python.ControlVoiceChannel import ControlVoiceChannel
 from python.Help import Help
-from python.NoticeVoiceChannel import NoticeVoiceChannel
+from python.NotifyVoiceChannel import NotifyVoiceChannel
 from python.Reminder import (GetReminder, RemoveReminder, RunReminder,
                              SetReminder)
 from python.ReturnKeyWordReaction import ReturnKeyWordReaction
@@ -24,7 +24,7 @@ load_dotenv()
 guildID = 1027574757186609243
 mainChannelID = 1027574758436511857
 testChannelID = 1045079269585457353
-noticeChannelID = 1045079380562550804
+notifyChannelID = 1045079380562550804
 voiceChannelID = 1035887203932459078
 
 
@@ -47,10 +47,10 @@ def setup(bot):
 @client.event
 async def on_voice_state_update(member, before, after):
     if not member.bot:
-        returnValue = NoticeVoiceChannel(
+        returnValue = NotifyVoiceChannel(
             member, before.channel, after.channel, voiceChannelID)
         if returnValue is not None:
-            await client.get_channel(noticeChannelID).send(returnValue)
+            await client.get_channel(notifyChannelID).send(returnValue)
 
 
 @client.event
