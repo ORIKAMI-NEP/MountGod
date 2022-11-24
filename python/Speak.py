@@ -1,19 +1,22 @@
 import glob
 import json
+import os
 import wave
 
 import numpy as np
 import requests
+from dotenv import load_dotenv
 from pydub import AudioSegment
+
+load_dotenv()
 
 
 def Speak(message):
     returnValue = None
-    with open("json/Speaker.json", "r", encoding="utf-8") as Speaker:
-        params = (
-            ("text", message),
-            ("speaker", json.load(Speaker)["Speaker"]),
-        )
+    params = (
+        ("text", message),
+        ("speaker", os.getenv("SPEAKER")),
+    )
     audio_query = requests.post(
         f"http://localhost:50021/audio_query",
         params=params
@@ -45,7 +48,6 @@ def Speak(message):
     with wave.Wave_write("message.wav") as fp:
         fp.setparams(params)
         fp.writeframes(audio_data.tobytes())
-    from pydub import AudioSegment
     sound = AudioSegment.from_file("message.wav", format="wav")[100:10000]
     sound.export("message.wav", format="wav")
     returnValue = "Success"

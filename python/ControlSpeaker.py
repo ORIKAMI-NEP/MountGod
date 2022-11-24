@@ -1,4 +1,8 @@
-import json
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def ControlSpeaker(message):
@@ -6,68 +10,65 @@ def ControlSpeaker(message):
     if "\\cs" in message:
         messageArray = message.split()
         if "\\cs" == messageArray[0]:
-            SpeakerData = {"Speaker": -1}
+            SpeakerNumber = -1
             ChangeData = ["", "ノーマル"]
             try:
                 if messageArray[1] == "0":
                     ChangeData[0] = "四国めたん"
                     if messageArray[2] == "0":
                         ChangeData[1] = "ノーマル"
-                        SpeakerData["Speaker"] = 2
+                        SpeakerNumber = 2
                     elif messageArray[2] == "1":
                         ChangeData[1] = "あまあま"
-                        SpeakerData["Speaker"] = 0
+                        SpeakerNumber = 0
                     elif messageArray[2] == "2":
                         ChangeData[1] = "ツンツン"
-                        SpeakerData["Speaker"] = 6
+                        SpeakerNumber = 6
                     elif messageArray[2] == "3":
                         ChangeData[1] = "セクシー"
-                        SpeakerData["Speaker"] = 4
+                        SpeakerNumber = 4
                 elif messageArray[1] == "1":
                     ChangeData[0] = "ずんだもん"
                     if messageArray[2] == "0":
                         ChangeData[1] = "ノーマル"
-                        SpeakerData["Speaker"] = 3
+                        SpeakerNumber = 3
                     elif messageArray[2] == "1":
                         ChangeData[1] = "あまあま"
-                        SpeakerData["Speaker"] = 1
+                        SpeakerNumber = 1
                     elif messageArray[2] == "2":
                         ChangeData[1] = "ツンツン"
-                        SpeakerData["Speaker"] = 7
+                        SpeakerNumber = 7
                     elif messageArray[2] == "3":
                         ChangeData[1] = "セクシー"
-                        SpeakerData["Speaker"] = 5
+                        SpeakerNumber = 5
                 elif messageArray[1] == "5":
                     ChangeData[0] = "九州そら"
                     if messageArray[2] == "0":
                         ChangeData[1] = "ノーマル"
-                        SpeakerData["Speaker"] = 16
+                        SpeakerNumber = 16
                     elif messageArray[2] == "1":
                         ChangeData[1] = "あまあま"
-                        SpeakerData["Speaker"] = 15
+                        SpeakerNumber = 15
                     elif messageArray[2] == "2":
                         ChangeData[1] = "ツンツン"
-                        SpeakerData["Speaker"] = 18
+                        SpeakerNumber = 18
                     elif messageArray[2] == "3":
                         ChangeData[1] = "セクシー"
-                        SpeakerData["Speaker"] = 17
+                        SpeakerNumber = 17
                     elif messageArray[2] == "4":
                         ChangeData[1] = "ささやき"
-                        SpeakerData["Speaker"] = 19
+                        SpeakerNumber = 19
                 elif messageArray[1] == "2":
                     ChangeData[0] = "春日部つむぎ"
-                    SpeakerData["Speaker"] = 8
+                    SpeakerNumber = 8
                 elif messageArray[1] == "3":
                     ChangeData[0] = "雨晴はう"
-                    SpeakerData["Speaker"] = 10
+                    SpeakerNumber = 10
                 elif messageArray[1] == "4":
                     ChangeData[0] = "冥鳴ひまり"
-                    SpeakerData["Speaker"] = 14
-                if SpeakerData["Speaker"] != -1:
-                    with open("json/Speaker.json", "wb") as Speaker:
-                        Speaker.write(json.dumps(
-                            SpeakerData, ensure_ascii=False, indent=2, separators=(",", ": ")).encode("utf-8"))
-                        Speaker.write("\n".encode())
+                    SpeakerNumber = 14
+                if SpeakerNumber != -1:
+                    os.environ["SPEAKER"] = str(SpeakerNumber)
                     returnValue = "VOICEROIDを **" + \
                         ChangeData[0] + "** の **" + \
                         ChangeData[1] + "** に切り替えました"
