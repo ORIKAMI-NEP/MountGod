@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=["GET"])
-def AIReplyAPI():
+def AIServer():
     message = request.args.get("message").rstrip().replace("？", "?")
     tokenizer = T5Tokenizer.from_pretrained("rinna/japanese-gpt2-small")
     model = AutoModelForCausalLM.from_pretrained("../output/yahooComment/")
