@@ -15,7 +15,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/MountGod/
+            cd ~/DiscordBot/
             git pull origin master
             git add .
             git commit -m "ServerUpdate"
