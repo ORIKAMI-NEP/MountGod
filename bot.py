@@ -18,7 +18,7 @@ from python.ReturnRandomReaction import ReturnRandomReaction
 from python.Speak import Speak
 from python.WeatherForecast import WeatherForecast
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all())
 load_dotenv()
 
 guildID = 1027574757186609243
