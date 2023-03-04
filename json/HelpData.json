@@ -2,31 +2,31 @@
   {
     "title": "AI文章：入力した文章に対してAIが適切な文章を返します",
     "command": [
-      "\\ai *\"inputText\"*：Yahooニュースのコメント欄を学習したモデルを使用します",
-      "\\ai naroNovel_*\"inputText\"*：なろう小説を学習したモデルを使用します"
+      "!ai *\"inputText\"*：Yahooニュースのコメント欄を学習したモデルを使用します",
+      "!ai naroNovel_*\"inputText\"*：なろう小説を学習したモデルを使用します"
     ]
   },
   {
     "title": "AIリアクション：入力した文章に対してAIが適切なリアクションを返します",
     "command": [
       "良い返し(リアクション)：付与されたリアクションが正しいことを学習させます",
-      "\\fl *\"inputText\"*：入力した文章に付与したリアクションが正しいことを学習させます（ForceLearn）"
+      "!fl *\"inputText\"*：入力した文章に付与したリアクションが正しいことを学習させます（ForceLearn）"
     ]
   },
   {
     "title": "リマインダー：セットした時刻に指定したメッセージを送信します",
     "command": [
-      "\\sr *\"year\"* *\"month\"* *\"day\"* *\"hour\"* *\"minute\"* *\"inputText\"*：リマインダーをセットします（SetReminder）",
-      "\\gr：セットされているリマインダーの一覧を表示します（GetReminder）",
-      "\\rr *\"reminderNumber\"*：\\grで表示した左の番号のリマインダーを削除します（RemoveReminder）"
+      "!sr *\"year\"* *\"month\"* *\"day\"* *\"hour\"* *\"minute\"* *\"inputText\"*：リマインダーをセットします（SetReminder）",
+      "!gr：セットされているリマインダーの一覧を表示します（GetReminder）",
+      "!rr *\"reminderNumber\"*：!grで表示した左の番号のリマインダーを削除します（RemoveReminder）"
     ]
   },
   {
     "title": "ボイス：DMに送ったテキストを喋ります",
     "command": [
-      "\\come：ボイスチャンネルに接続します",
-      "\\bye：ボイスチャンネルから切断します",
-      "\\cs *\"speakerNumber\"* *(\"speakerTypeNumber\")*：VOICEROIDを切り替えます（ChangeSpeaker）",
+      "!come：ボイスチャンネルに接続します",
+      "!bye：ボイスチャンネルから切断します",
+      "!cs *\"speakerNumber\"* *(\"speakerTypeNumber\")*：VOICEROIDを切り替えます（ChangeSpeaker）",
       "VOICEROID一覧：四国めたん[0]（ノーマル[0]、あまあま[1]、ツンツン[2]、セクシー[3]）、ずんだもん[1]（ノーマル[0]、あまあま[1]、ツンツン[2]、セクシー[3]）、春日部つむぎ[2]、雨晴はう[3]、冥鳴ひまり[4]、九州そら[5]（ノーマル[0]、あまあま[1]、ツンツン[2]、セクシー[3]、ささやき[4]）"
     ]
   }

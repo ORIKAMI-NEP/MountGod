@@ -7,9 +7,9 @@ load_dotenv()
 
 def ControlSpeaker(message):
     returnValue = None
-    if "\\cs" in message:
+    if "!cs" in message:
         messageArray = message.split()
-        if "\\cs" == messageArray[0]:
+        if "!cs" == messageArray[0]:
             SpeakerNumber = -1
             ChangeData = ["", "ノーマル"]
             try:

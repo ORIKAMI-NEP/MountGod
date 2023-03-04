@@ -4,9 +4,9 @@ import json
 
 def SetReminder(message):
     returnValue = None
-    if "\\sr" in message:
+    if "!sr" in message:
         messageArray = message.split()
-        if "\\sr" == messageArray[0]:
+        if "!sr" == messageArray[0]:
             returnValue = "引数の長さが違います"
             if len(messageArray) == 7:
                 with open("json/ReminderData.json", "r", encoding="utf-8") as ReminderData:
@@ -28,7 +28,7 @@ def SetReminder(message):
 
 def GetReminder(message):
     returnValue = None
-    if "\\gr" in message:
+    if "!gr" in message:
         with open("json/ReminderData.json", "r", encoding="utf-8") as ReminderData:
             ReminderData = json.load(ReminderData)
             if len(ReminderData) == 0:
@@ -42,9 +42,9 @@ def GetReminder(message):
 
 def RemoveReminder(message):
     returnValue = None
-    if "\\rr" in message:
+    if "!rr" in message:
         messageArray = message.split()
-        if "\\rr" == messageArray[0]:
+        if "!rr" == messageArray[0]:
             returnValue = "引数の長さが違います"
             if len(messageArray) == 2:
                 with open("json/ReminderData.json", "r", encoding="utf-8") as ReminderData:
@@ -73,5 +73,5 @@ def RunReminder():
                 returnValue = data["message"]
                 elementNumber = i
     if elementNumber != -1:
-        RemoveReminder("\\rr " + str(elementNumber))
+        RemoveReminder("!rr " + str(elementNumber))
     return returnValue
