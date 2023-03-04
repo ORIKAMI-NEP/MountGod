@@ -9,6 +9,7 @@ from python.AIReaction import LearnAIReaction, ReturnAIReaction
 from python.AIReply import AIReply
 from python.ControlSpeaker import ControlSpeaker
 from python.ControlVoiceChannel import ControlVoiceChannel
+from python.GPTReply import GPTReply
 from python.Help import Help
 from python.NotifyVoiceChannel import NotifyVoiceChannel
 from python.Reminder import (GetReminder, RemoveReminder, RunReminder,
@@ -23,8 +24,8 @@ load_dotenv()
 
 guildID = 1027574757186609243
 mainChannelID = 1027574758436511857
-testChannelID = 1029416283193737226
-notifyChannelID = 1029416283193737226
+testChannelID = 1027782453814902814
+notifyChannelID = 1027782453814902814
 voiceChannelID = 1035887203932459078
 
 
@@ -57,6 +58,10 @@ async def on_voice_state_update(member, before, after):
 async def on_message(message):
     if not message.author.bot:
         returnValue = AIReply(message.content)
+        if returnValue is not None:
+            await message.channel.send(returnValue)
+
+        returnValue = GPTReply(message.content)
         if returnValue is not None:
             await message.channel.send(returnValue)
 
