@@ -11,7 +11,6 @@ def GPTReply(message):
     returnValue = None
     if "!gpt " in message:
         try:
-            # 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
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
