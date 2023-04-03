@@ -9,7 +9,6 @@ from python.AIReaction import LearnAIReaction, ReturnAIReaction
 from python.AIReply import AIReply
 from python.ControlSpeaker import ControlSpeaker
 from python.ControlVoiceChannel import ControlVoiceChannel
-from python.GPTReply import GPTReply
 from python.Help import Help
 from python.NotifyVoiceChannel import NotifyVoiceChannel
 from python.Reminder import (GetReminder, RemoveReminder, RunReminder,
@@ -58,10 +57,6 @@ async def on_voice_state_update(member, before, after):
 async def on_message(message):
     if not message.author.bot:
         returnValue = AIReply(message.content)
-        if returnValue is not None:
-            await message.channel.send(returnValue)
-
-        returnValue = GPTReply(message.content)
         if returnValue is not None:
             await message.channel.send(returnValue)
 
