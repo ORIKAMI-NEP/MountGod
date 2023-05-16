@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: master
         uses: appleboy/ssh-action@master
@@ -17,6 +17,3 @@ jobs:
           script: |
             cd ~/DiscordBot/
             git pull origin master
-            git add .
-            git commit -m "ServerUpdate"
-            git push origin master
