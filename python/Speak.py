@@ -17,8 +17,8 @@ def Speak(message):
         ("text", message),
         ("speaker", os.getenv("SPEAKER")),
     )
-    audio_query = requests.post(
-        f"http://localhost:50021/audio_query",
+    audioQuery = requests.post(
+        f"http://localhost:50021/audioQuery",
         params=params
     )
     headers = {"Content-Type": "application/json", }
@@ -26,7 +26,7 @@ def Speak(message):
         f"http://localhost:50021/synthesis",
         headers=headers,
         params=params,
-        data=json.dumps(audio_query.json())
+        data=json.dumps(audioQuery.json())
     )
     with wave.open("message.wav", "wb") as messageData:
         messageData.setnchannels(1)
@@ -40,14 +40,14 @@ def Speak(message):
             assert fp.getsampwidth() == 2
             audios.append(np.frombuffer(buf, np.int16))
             params = fp.getparams()
-    audio_data = np.concatenate(audios)
-    scaling_factors = [np.iinfo(np.int16).max/(np.max(audio_data)+1e-8),
-                       np.iinfo(np.int16).min/(np.min(audio_data)+1e-8)]
-    scaling_factors = min([s for s in scaling_factors if s > 0])
-    audio_data = (audio_data * scaling_factors).astype(np.int16)
+    audioData = np.concatenate(audios)
+    scalingFactors = [np.iinfo(np.int16).max/(np.max(audioData)+1e-8),
+                       np.iinfo(np.int16).min/(np.min(audioData)+1e-8)]
+    scalingFactors = min([s for s in scalingFactors if s > 0])
+    audioData = (audioData * scalingFactors).astype(np.int16)
     with wave.Wave_write("message.wav") as fp:
         fp.setparams(params)
-        fp.writeframes(audio_data.tobytes())
+        fp.writeframes(audioData.tobytes())
     sound = AudioSegment.from_file("message.wav", format="wav")[100:10000]
     sound.export("message.wav", format="wav")
     returnValue = "Success"
