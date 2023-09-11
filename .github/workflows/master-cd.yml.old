@@ -1,4 +1,4 @@
-name: master
+name: master CD
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: master
+      - name: master CD
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -15,5 +15,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/DiscordBot/
+            cd ~/discord-bot/
             git pull origin master
