@@ -1,4 +1,9 @@
-.env
+# Python
 __pycache__/
+
+# discord-bot
+.env
 message.wav
+
+# nohup
 nohup.out
