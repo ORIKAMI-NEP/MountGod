@@ -1,8 +1,10 @@
 name: master CD
+
 on:
   push:
     branches:
       - master
+
 jobs:
   master-cd:
     runs-on: ubuntu-latest
