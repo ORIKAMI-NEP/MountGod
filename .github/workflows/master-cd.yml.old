@@ -1,4 +1,4 @@
-name: master CD
+name: Master CD
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   master-cd:
     runs-on: ubuntu-latest
     steps:
-      - name: master CD
+      - name: Master CD
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
