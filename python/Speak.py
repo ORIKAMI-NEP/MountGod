@@ -17,16 +17,15 @@ def Speak(message):
         ("text", message),
         ("speaker", os.getenv("SPEAKER")),
     )
-    audioQuery = requests.post(
-        f"http://localhost:50021/audioQuery",
-        params=params
-    )
-    headers = {"Content-Type": "application/json", }
+    audioQuery = requests.post(f"http://localhost:50021/audioQuery", params=params)
+    headers = {
+        "Content-Type": "application/json",
+    }
     synthesis = requests.post(
         f"http://localhost:50021/synthesis",
         headers=headers,
         params=params,
-        data=json.dumps(audioQuery.json())
+        data=json.dumps(audioQuery.json()),
     )
     with wave.open("message.wav", "wb") as messageData:
         messageData.setnchannels(1)
@@ -41,8 +40,10 @@ def Speak(message):
             audios.append(np.frombuffer(buf, np.int16))
             params = fp.getparams()
     audioData = np.concatenate(audios)
-    scalingFactors = [np.iinfo(np.int16).max/(np.max(audioData)+1e-8),
-                       np.iinfo(np.int16).min/(np.min(audioData)+1e-8)]
+    scalingFactors = [
+        np.iinfo(np.int16).max / (np.max(audioData) + 1e-8),
+        np.iinfo(np.int16).min / (np.min(audioData) + 1e-8),
+    ]
     scalingFactors = min([s for s in scalingFactors if s > 0])
     audioData = (audioData * scalingFactors).astype(np.int16)
     with wave.Wave_write("message.wav") as fp:

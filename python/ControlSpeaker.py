@@ -69,9 +69,13 @@ def ControlSpeaker(message):
                     SpeakerNumber = 14
                 if SpeakerNumber != -1:
                     os.environ["SPEAKER"] = str(SpeakerNumber)
-                    returnValue = "VOICEROIDを **" + \
-                        ChangeData[0] + "** の **" + \
-                        ChangeData[1] + "** に切り替えました"
+                    returnValue = (
+                        "VOICEROIDを **"
+                        + ChangeData[0]
+                        + "** の **"
+                        + ChangeData[1]
+                        + "** に切り替えました"
+                    )
                 else:
                     returnValue = "引数が違います"
             except Exception as e:

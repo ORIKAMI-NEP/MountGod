@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def JumpServer():
-    return requests.get("http://10.40.3.171:51400/?message="+request.args.get("message"))
+    return requests.get(
+        "http://10.40.3.171:51400/?message=" + request.args.get("message")
+    )
 
 
 if __name__ == "__main__":

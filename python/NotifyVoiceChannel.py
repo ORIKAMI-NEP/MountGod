@@ -1,6 +1,10 @@
 def NotifyVoiceChannel(member, beforeChannel, afterChannel, voiceChannelID):
     returnValue = None
-    if beforeChannel != afterChannel and afterChannel is not None and afterChannel.id in [voiceChannelID]:
+    if (
+        beforeChannel != afterChannel
+        and afterChannel is not None
+        and afterChannel.id in [voiceChannelID]
+    ):
         if member.id in [778607585586053127]:
             emoji = ":fire:"
         elif member.id in [413611857778180096]:
@@ -16,6 +20,13 @@ def NotifyVoiceChannel(member, beforeChannel, afterChannel, voiceChannelID):
         elif member.id in [777105632342966273]:
             emoji = ":syringe:"
 
-        returnValue = emoji + " __" + member.name + "__ が **" + \
-            afterChannel.name + "** に参加しました！" + emoji
+        returnValue = (
+            emoji
+            + " __"
+            + member.name
+            + "__ が **"
+            + afterChannel.name
+            + "** に参加しました！"
+            + emoji
+        )
     return returnValue

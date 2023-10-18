@@ -14,8 +14,7 @@ def ReturnKeyWordReaction(message):
                     if len(data["reaction"]) != 0:
                         for reaction in data["reaction"]:
                             if reaction[:1] == "U":
-                                reaction = chr(
-                                    (int("0x" + reaction[2:], 16)))
+                                reaction = chr((int("0x" + reaction[2:], 16)))
                             returnValue[0] = reaction
                     if len(data["message"]) != 0:
                         returnValue[1] = data["message"]

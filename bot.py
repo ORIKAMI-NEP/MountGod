@@ -11,8 +11,7 @@ from python.ControlSpeaker import ControlSpeaker
 from python.ControlVoiceChannel import ControlVoiceChannel
 from python.Help import Help
 from python.NotifyVoiceChannel import NotifyVoiceChannel
-from python.Reminder import (GetReminder, RemoveReminder, RunReminder,
-                             SetReminder)
+from python.Reminder import GetReminder, RemoveReminder, RunReminder, SetReminder
 from python.ReturnKeyWordReaction import ReturnKeyWordReaction
 from python.ReturnRandomReaction import ReturnRandomReaction
 from python.Speak import Speak
@@ -31,7 +30,9 @@ voiceChannelID = 1035887203932459078
 @client.event
 async def on_ready():
     print("I'm on ready...")
-    await client.change_presence(activity=discord.Activity(name="木香井芽衣の憂鬱", type=discord.ActivityType.watching))
+    await client.change_presence(
+        activity=discord.Activity(name="木香井芽衣の憂鬱", type=discord.ActivityType.watching)
+    )
     loop.start()
 
 
@@ -48,7 +49,8 @@ def setup(bot):
 async def on_voice_state_update(member, before, after):
     if not member.bot:
         returnValue = NotifyVoiceChannel(
-            member, before.channel, after.channel, voiceChannelID)
+            member, before.channel, after.channel, voiceChannelID
+        )
         if returnValue is not None:
             await client.get_channel(notifyChannelID).send(returnValue)
 
@@ -88,13 +90,18 @@ async def on_message(message):
             await message.channel.send(returnValue)
 
         try:
-            if type(message.channel) == discord.DMChannel and client.user == message.channel.me and client.get_guild(guildID).voice_client is not None:
+            if (
+                type(message.channel) == discord.DMChannel
+                and client.user == message.channel.me
+                and client.get_guild(guildID).voice_client is not None
+            ):
                 returnValue = Speak(message.content)
                 if returnValue is not None:
                     while client.get_guild(guildID).voice_client.is_playing():
                         await asyncio.sleep(0.1)
                     client.get_guild(guildID).voice_client.play(
-                        discord.FFmpegPCMAudio("message.wav"))
+                        discord.FFmpegPCMAudio("message.wav")
+                    )
         except:
             pass
 
